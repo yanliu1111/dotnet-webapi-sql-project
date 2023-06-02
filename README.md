@@ -64,3 +64,10 @@ For example, we could add properties like the created and modified date or a fla
 It is important when I build a frontend that should use a specific type of the creation of a new character. In this project, I can use the character dto and add charactor dto as a parameter to the create character method.
 
 Work flow: after building `AddCharacterDto` and `GetCharacterDto`, remove them to controller and service methods.
+
+### 📌 4. Install package AutoMapper
+
+`dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection`
+I used the mapper to set the correct types to the data property of the service response. I can get charactor by id method, use the map function for this.
+
+`mapper.Map<GetCharacterDto>(character);` first decide in anger brackets which type the value should be mapped tp and the parameter is the value that should be mapped.
