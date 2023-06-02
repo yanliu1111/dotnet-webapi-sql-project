@@ -12,8 +12,8 @@
 - ✅ Asynchronous implementation with async/await Task
 - ✅ Service Response with Generics
 - ✅ Data-Transfer-Object (DTO) pattern
-- CRUD operations
-- HTTP requests methods (GET, POST, PUT, DELETE)
+- ✅ CRUD operations
+- ✅ HTTP requests methods (GET, POST, PUT, DELETE)
 
 ## Entity Framework Core
 
