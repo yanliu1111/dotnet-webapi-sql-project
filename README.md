@@ -49,3 +49,7 @@ Build a clean structure:
 Interfaces, DTOs, Models, Services, Controllers, Repositories, etc.
 
 After build ICharacterService file, we can derectly `implement inferface` in CharacterService file automatically. **Click 💡 to implement inferface.** Then we can jump between character controller and character service. Then remove the ok result call from controller to service.
+
+### 📌 2. Service Response w Generics
+
+The characters are wrapped in the service response, the front end could react to the new property and provide a smooth user experience with toast notifications or something similar instead of presenting complex exception messages in the console or worse a frozen application in case of an error.
