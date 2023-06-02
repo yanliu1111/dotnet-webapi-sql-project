@@ -14,21 +14,19 @@ namespace dotnetproject.Controllers
     {
         private static List<Character> characters = new List<Character>{
             new Character(),
-            new Character { Name = "Sam" }
+            new Character { Id = 1, Name = "Sam" }
         };
         
-
-        [HttpGet]
-        [Route("GetAll")]
+        [HttpGet("GetAll")]
         public ActionResult <List<Character>> Get()
         {
             return Ok(characters);
         }
 
-        [HttpGet]
-        public ActionResult <List<Character>> GetSingle()
+        [HttpGet ("{id}")]
+        public ActionResult <List<Character>> GetSingle(int id)
         {
-            return Ok(characters[0]);
+            return Ok(characters.FirstOrDefault (c => c.Id == id));
         }
     }
 }
