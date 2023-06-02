@@ -7,8 +7,8 @@
 
 ## Web API
 
-- Model-View-Controller (MVC) pattern
-- Best Practices
+- ✅ Model-View-Controller (MVC) pattern
+- ✅ Best Practices - Data structure Clean 🧹, code changed between Controller and Service
 - Asynchronous implementation with async/await
 - Data-Transfer-Object (DTO) pattern
 - CRUD operations
@@ -35,3 +35,17 @@
 - Many-to-Many
 
 ## Building a Game Project
+
+## 🔰 Working Notes
+
+### 📌 1. Create Web API
+
+|            | DTO  |                | DTO  |             | Model |              |
+| ---------- | ---- | -------------- | ---- | ----------- | ----- | ------------ |
+| **Client** | <--> | **Controller** | <--> | **Service** | <-->  | **Database** |
+
+Build a clean structure:
+
+Interfaces, DTOs, Models, Services, Controllers, Repositories, etc.
+
+After build ICharacterService file, we can derectly `implement inferface` in CharacterService file automatically. **Click 💡 to implement inferface.** Then we can jump between character controller and character service. Then remove the ok result call from controller to service.
