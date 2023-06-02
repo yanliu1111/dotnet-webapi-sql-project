@@ -12,12 +12,23 @@ namespace dotnetproject.Controllers
     [Route("api/[controller]")]
     public class CharacterController : ControllerBase
     {
-        private static Character knight = new Character();
+        private static List<Character> characters = new List<Character>{
+            new Character(),
+            new Character { Name = "Sam" }
+        };
+        
 
         [HttpGet]
-        public ActionResult <Character> Get()
+        [Route("GetAll")]
+        public ActionResult <List<Character>> Get()
         {
-            return Ok(knight);
+            return Ok(characters);
+        }
+
+        [HttpGet]
+        public ActionResult <List<Character>> GetSingle()
+        {
+            return Ok(characters[0]);
         }
     }
 }
