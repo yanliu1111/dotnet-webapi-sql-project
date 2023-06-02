@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using dotnetproject.Dtos.Character;
 using dotnetproject.Services.CharacterService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -21,18 +22,18 @@ namespace dotnetproject.Controllers
         }
          
         [HttpGet("GetAll")]
-        public async Task<ActionResult<ServiceResponse <List<Character>>>> Get()
+        public async Task<ActionResult<ServiceResponse <List<GetCharacterDto>>>> Get()
         {
             return Ok(await characterService.GetAllCharacters());
         }
 
         [HttpGet ("{id}")]
-        public async Task<ActionResult <ServiceResponse <Character>>> GetSingle(int id)
+        public async Task<ActionResult <ServiceResponse <GetCharacterDto>>> GetSingle(int id)
         {
             return Ok(await characterService.GetCharacterById(id));
         }
         [HttpPost]
-        public async Task<ActionResult<ServiceResponse<List<Character>>>> AddCharacter(Character newCharacter)
+        public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> AddCharacter(AddCharacterDto newCharacter)
         {
             return Ok(await characterService.AddCharacter(newCharacter));
         }
