@@ -32,6 +32,16 @@ namespace dotnetproject.Controllers
         {
             return Ok(await characterService.GetCharacterById(id));
         }
+        [HttpDelete ("{id}")]
+        public async Task<ActionResult <ServiceResponse<List <GetCharacterDto>>>> Delete(int id)
+        {
+            var response = await characterService.DeleteCharacter(id);
+            if(response.Data == null)
+            {
+                return NotFound(response);
+            }
+            return Ok(response);
+        }
     
         [HttpPost]
         public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> AddCharacter(AddCharacterDto newCharacter)
@@ -48,6 +58,7 @@ namespace dotnetproject.Controllers
             }
             return Ok(response);
         }
+        
 
     }
 
