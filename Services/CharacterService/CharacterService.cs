@@ -25,7 +25,6 @@ namespace dotnetproject.Services.CharacterService
             Character character = mapper.Map<Character>(newCharacter);
             character.Id = characters.Max(c => c.Id) + 1;
             characters.Add(character);
-            characters.Add(mapper.Map<Character> (newCharacter));
             serviceResponse.Data = characters.Select(c => mapper.Map<GetCharacterDto>(c)).ToList();
             return serviceResponse;
         }
@@ -45,5 +44,28 @@ namespace dotnetproject.Services.CharacterService
             serviceResponse.Data = mapper.Map<GetCharacterDto>(character);
             return serviceResponse;
         }
+
+        public async Task<ServiceResponse<GetCharacterDto>> UpdateCharacter(UpdateCharacterDto updatedCharacter)
+        {
+            ServiceResponse<GetCharacterDto> response = new ServiceResponse<GetCharacterDto>();
+            try{
+            Character character = characters.FirstOrDefault(c => c.Id == updatedCharacter.Id);
+            character.Name = updatedCharacter.Name;
+            character.HitPoints = updatedCharacter.HitPoints;
+            character.Strength = updatedCharacter.Strength;
+            character.Defense = updatedCharacter.Defense;
+            character.Intelligence = updatedCharacter.Intelligence;
+            character.Class = updatedCharacter.Class;
+
+            response.Data = mapper.Map<GetCharacterDto>(character);
+            }
+            catch(Exception ex){
+                response.Success = false;
+                response.Message = ex.Message;
+            }
+            return response;
+        }
+
+        
     }
 }

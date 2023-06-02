@@ -32,11 +32,24 @@ namespace dotnetproject.Controllers
         {
             return Ok(await characterService.GetCharacterById(id));
         }
+    
         [HttpPost]
         public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> AddCharacter(AddCharacterDto newCharacter)
         {
             return Ok(await characterService.AddCharacter(newCharacter));
         }
+        [HttpPut]
+        public async Task<ActionResult<ServiceResponse<GetCharacterDto>>> UpdateCharacter(UpdateCharacterDto updatedCharacter)
+        {
+            var response = await characterService.UpdateCharacter(updatedCharacter);
+            if(response.Data == null)
+            {
+                return NotFound(response);
+            }
+            return Ok(response);
+        }
+
     }
+
 }
 
